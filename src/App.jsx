@@ -31,14 +31,14 @@ export const App = () => {
     paygreenjs.attachEventListener(
       paygreenjs.Events.PAN_FIELD_FULFILLED,
       () => {
-        paygreenjs.focus("cvv");
+        paygreenjs.focus("exp");
       }
     );
 
     paygreenjs.attachEventListener(
-      paygreenjs.Events.CVV_FIELD_FULFILLED,
+      paygreenjs.Events.EXP_FIELD_FULFILLED,
       () => {
-        paygreenjs.focus("exp");
+        paygreenjs.focus("cvv");
       }
     );
 
