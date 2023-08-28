@@ -52,10 +52,21 @@ export const PaymentButton = () => {
   const areAllFieldsFulfilled =
     isPanFulfilled && isCvvFulfilled && isExpFulfilled;
 
+  if (!areAllFieldsFulfilled) {
+    return (
+        <Button
+            disabled
+            className="w-full h-36 text-5xl disabled:opacity-50"
+        >
+          <CreditCard className="mr-12 h-14 w-14" />
+          Pay
+        </Button>
+    );
+  }
+
   return (
     <Button
       onClick={handlePay}
-      disabled={!areAllFieldsFulfilled}
       className="w-full h-36 bg-gradient-to-r from-[#e2fc26] to-[#f2e526] text-black text-5xl"
     >
       <CreditCard className="mr-12 h-14 w-14" />
