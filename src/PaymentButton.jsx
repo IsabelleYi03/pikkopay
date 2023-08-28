@@ -36,8 +36,14 @@ export const PaymentButton = () => {
 
   if (isLoading) {
     return (
-      <Button disabled className="w-full  bg-gradient-to-r from-[#e2fc26] to-[#f2e526] text-black">
-        <Loader2 className="mr-2 h-4 w-4 animate-spin " />
+      <Button disabled className="w-full h-36  bg-gradient-to-r from-[#e2fc26] to-[#f2e526] text-black text-5xl">
+
+        <div className="w-14 h-14 relative">
+        {/* Animation Spin 1 */}
+        <div className="loader ease-linear rounded-full border-t-4 border-b-4 border-black h-10 w-10 absolute animate-spin"></div>
+        {/* Animation Spin 2 */}
+        <div className="loader ease-linear rounded-full border-t-4 border-b-4 border-white h-10 w-10 absolute animate-spin" style={{ animationDelay: '0.25s' }}></div>
+      </div>
         Transaction Processing...
       </Button>
     );
@@ -50,9 +56,9 @@ export const PaymentButton = () => {
     <Button
       onClick={handlePay}
       disabled={!areAllFieldsFulfilled}
-      className="w-full bg-gradient-to-r from-[#e2fc26] to-[#f2e526] text-black"
+      className="w-full h-36 bg-gradient-to-r from-[#e2fc26] to-[#f2e526] text-black text-5xl"
     >
-      <CreditCard className="mr-2 h-4 w-4" />
+      <CreditCard className="mr-12 h-14 w-14" />
       Pay
     </Button>
   );

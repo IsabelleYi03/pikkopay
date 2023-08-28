@@ -14,6 +14,19 @@ import logomastercard from './components/logo-mastercard.png';
 import logomamex from './components/logo-amex.png';
 
 export const App = () => {
+  const style = {
+    input: {
+      base: {
+        fontSize: '40px',
+      },
+    },
+    placeholder: {
+      base: {
+        color: 'grey',
+      },
+    },
+  };
+
   useEffect(() => {
     paygreenjs.attachEventListener(
       paygreenjs.Events.PAN_FIELD_FULFILLED,
@@ -33,6 +46,7 @@ export const App = () => {
       publicKey: "pk_6d92047e838d4870b74857ba47e2eebd",
       mode: "instrument",
       paymentMethod: "conecs",
+      style,
       modeOptions: {
         shopId: "sh_69b974d635c34df18c807baed0794836",
       },
@@ -40,44 +54,42 @@ export const App = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center">
-    <Card className="w-[390px] bg-gradient-to-r from-amber-50 to-lime-100	">
+    <div className="flex justify-center items-center h-screen">
+    <Card className="w-full h-full bg-gradient-to-r from-yellow to-yellow2 shadow-lg	">
       <CardHeader>
         <CardTitle>Payment</CardTitle>
       </CardHeader>
       <CardContent >
-        <div className="flex flex-row justify-start space-x-2 pb-10">
-          <div className="w-1/12 flex items-center justify-center">
-            <img src = {logocb} />
-          </div>
-          <div className="w-1/12 flex items-center justify-center">
-            <img src = {logovisa} /> 
-          </div>
-          <div className="w-1/12 flex items-center justify-center">
-            <img src = {logomastercard} />
-          </div>
-          <div className="w-1/12 flex items-center justify-center">
-            <img src = {logomamex} />
-          </div>
+      <div className="flex flex-row justify-start space-x-4 pb-16">
+        <div className="w-2/12 flex items-center justify-center">
+          <img src={logocb} alt="CB Logo" />
         </div>
+        <div className="w-2/12 flex items-center justify-center">
+          <img src={logovisa} alt="Visa Logo" />
+        </div>
+        <div className="w-2/12 flex items-center justify-center">
+          <img src={logomastercard} alt="Mastercard Logo" />
+        </div>
+        <div className="w-2/12 flex items-center justify-center">
+          <img src={logomamex} alt="Mamex Logo" />
+        </div>
+      </div>
         <div id="paygreen-container"></div>
         <div id="paygreen-methods-container"></div>
-        <div className="flex flex-col space-y-6">
-          <div className="flex flex-col space-y-4">
+        <div className="flex flex-col space-y-10 pb-40">
+          <div className="flex flex-col space-y-8 ">
             <Label>Card Number</Label>
             <div id="paygreen-pan-frame"></div>
           </div>
-          <div className="flex flex-col space-y-4">
-            <Label>Expiry Date</Label>
+          <div className="flex flex-col space-y-8">
+            <Label>Expiration Date</Label>
             <div id="paygreen-exp-frame"></div>
           </div>
-          <div className="flex flex-col space-y-4 pb-4">
+          <div className="flex flex-col space-y-8">
             <Label>Security Code</Label>
             <div id="paygreen-cvv-frame"></div>
           </div>
         </div>
-        <div id="paygreen-reuse-checkbox-container"></div>
-        
       </CardContent>
       <CardFooter>
         <PaymentButton />

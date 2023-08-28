@@ -79,3 +79,33 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+.paygreen-pan-frame, .paygreen-cvv-frame, .paygreen-exp-frame {   background-color: white;   padding: 0 0.5rem;   border-radius: 40px !important; border-color: #e6e6e6; }
+
+
+.input-container{
+  height: 100px;
+}
+
+.frame--activated, .paygreen-pan-frame {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  font-size: xx-large;
+}
+
+body {
+ background: hsla(47, 100%, 94%, 1);
+ 
+ background: linear-gradient(135deg, hsla(47, 100%, 94%, 1) 0%, hsla(139, 100%, 90%, 1) 100%);
+
+background: -moz-linear-gradient(135deg, hsla(47, 100%, 94%, 1) 0%, hsla(139, 100%, 90%, 1) 100%);
+
+background: -webkit-linear-gradient(135deg, hsla(47, 100%, 94%, 1) 0%, hsla(139, 100%, 90%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FFF8DF", endColorstr="#CCFFDC", GradientType=1 );
+}
+
+
+
